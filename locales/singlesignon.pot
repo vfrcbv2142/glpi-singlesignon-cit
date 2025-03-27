@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR glpi-singlesignon Development Team
+# This file is distributed under the same license as the singlesignon package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: singlesignon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-04 20:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: setup.php:33
+#, php-format
+msgid "Please, rename the plugin folder \"%s\" to \"singlesignon\""
+msgstr ""
+
+#: setup.php:67 front/provider.form.php:86 front/provider.form.php:88
+#: front/provider.php:33 front/provider.php:35 inc/preference.class.php:89
+#: inc/provider.class.php:84
+msgid "Single Sign-on"
+msgstr ""
+
+#: setup.php:84
+msgid "This plugin requires GLPI >= 0.85"
+msgstr ""
+
+#: front/callback.php:40
+msgid "Provider not defined."
+msgstr ""
+
+#: front/callback.php:46
+msgid "Provider not found."
+msgstr ""
+
+#: front/callback.php:50
+msgid "Provider not active."
+msgstr ""
+
+#: front/callback.php:108
+msgid "Automatic redirection, else click"
+msgstr ""
+
+#: inc/preference.class.php:172 inc/provider.class.php:77
+msgid "Single Sign-on Provider"
+msgstr ""
+
+#: inc/preference.class.php:197
+msgid "Linked accounts"
+msgstr ""
+
+#: inc/provider.class.php:126
+msgid "JSON SSO provider representation"
+msgstr ""
+
+#: inc/provider.class.php:127
+msgid "Copy provider information"
+msgstr ""
+
+#: inc/provider.class.php:158
+msgid "SSO Type"
+msgstr ""
+
+#: inc/provider.class.php:166 inc/provider.class.php:509
+msgid "Client ID"
+msgstr ""
+
+#: inc/provider.class.php:168 inc/provider.class.php:517
+msgid "Client Secret"
+msgstr ""
+
+#: inc/provider.class.php:179 inc/provider.class.php:525
+msgid "Scope"
+msgstr ""
+
+#: inc/provider.class.php:181 inc/provider.class.php:533
+msgid "Extra Options"
+msgstr ""
+
+#: inc/provider.class.php:183
+#, php-format
+msgid ""
+"Allows you to specify custom parameters for the SSO provider %1$s. Example: "
+"%2$s to force login or %3$s to force account selection (supported URL "
+"settings may vary by provider). You can specify additional parameters with "
+"the \"&\" delimiter."
+msgstr ""
+
+#: inc/provider.class.php:183 inc/provider.class.php:190
+#: inc/provider.class.php:541
+msgid "Authorize URL"
+msgstr ""
+
+#: inc/provider.class.php:195 inc/provider.class.php:549
+msgid "Access Token URL"
+msgstr ""
+
+#: inc/provider.class.php:200 inc/provider.class.php:557
+msgid "Resource Owner Details URL"
+msgstr ""
+
+#: inc/provider.class.php:205
+msgid "IsDefault"
+msgstr ""
+
+#: inc/provider.class.php:207
+msgid "PopupAuth"
+msgstr ""
+
+#: inc/provider.class.php:213
+msgid "SplitDomain"
+msgstr ""
+
+#: inc/provider.class.php:217
+msgid "AuthorizedDomains"
+msgstr ""
+
+#: inc/provider.class.php:219
+msgid ""
+"Provide a list of domains allowed to log in through this provider (separated "
+"by commas, no spaces) (optional)."
+msgstr ""
+
+#: inc/provider.class.php:225
+msgid "Use Email as Login"
+msgstr ""
+
+#: inc/provider.class.php:228
+msgid "Split Name"
+msgstr ""
+
+#: inc/provider.class.php:316
+msgid "Callback URL"
+msgstr ""
+
+#: inc/provider.class.php:320
+msgid "Test Single Sign-on"
+msgstr ""
+
+#: inc/provider.class.php:379
+msgid "A Name is required"
+msgstr ""
+
+#: inc/provider.class.php:385
+#, php-format
+msgid "The \"%s\" is a Invalid type"
+msgstr ""
+
+#: inc/provider.class.php:389
+msgid "A Client ID is required"
+msgstr ""
+
+#: inc/provider.class.php:393
+msgid "A Client Secret is required"
+msgstr ""
+
+#: inc/provider.class.php:398
+msgid "An Authorize URL is required"
+msgstr ""
+
+#: inc/provider.class.php:400
+msgid "The Authorize URL is invalid"
+msgstr ""
+
+#: inc/provider.class.php:404
+msgid "An Access Token URL is required"
+msgstr ""
+
+#: inc/provider.class.php:406
+msgid "The Access Token URL is invalid"
+msgstr ""
+
+#: inc/provider.class.php:410
+msgid "A Resource Owner Details URL is required"
+msgstr ""
+
+#: inc/provider.class.php:412
+msgid "The Resource Owner Details URL is invalid"
+msgstr ""
+
+#: inc/provider.class.php:634
+msgid "Generic"
+msgstr ""
+
+#: inc/provider.class.php:635
+msgid "Azure"
+msgstr ""
+
+#: inc/provider.class.php:636
+msgid "Facebook"
+msgstr ""
+
+#: inc/provider.class.php:637
+msgid "GitHub"
+msgstr ""
+
+#: inc/provider.class.php:638
+msgid "Google"
+msgstr ""
+
+#: inc/provider.class.php:639
+msgid "Instagram"
+msgstr ""
+
+#: inc/provider.class.php:640
+msgid "LinkdeIn"
+msgstr ""
+
+#: inc/toolbox.class.php:195
+#, php-format
+msgid "Login with %s"
+msgstr ""
