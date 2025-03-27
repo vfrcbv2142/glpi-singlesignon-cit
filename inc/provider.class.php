@@ -1232,29 +1232,12 @@ class PluginSinglesignonProvider extends CommonDBTM {
             }
          }
       }
-
-      if ($login && $user->getFromDBbyName($login)) {
-         return $user;
-      }
-
-      $default_condition = '';
-
-      if (version_compare(GLPI_VERSION, '9.3', '>=')) {
-         $default_condition = [];
-      }
-
-      $bOk = true;
-      if ($email && $user->getFromDBbyEmail($email, $default_condition)) {
-         return $user;
-      } else {
-         $bOk = false;
-      }
-
+      
       // var_dump($bOk);
       // die();
 
       // If the user does not exist in the database and the provider is google
-      if (static::getClientType() == "google" && !$bOk) {
+      if (static::getClientType() == "google") {
          // Generates an api token and a personal token... probably not necessary
          $tokenAPI = base_convert(hash('sha256', time() . mt_rand()), 16, 36);
          $tokenPersonnel = base_convert(hash('sha256', time() . mt_rand()), 16, 36);
@@ -1291,7 +1274,7 @@ class PluginSinglesignonProvider extends CommonDBTM {
       }
 
       // If the user does not exist in the database and the provider is generic (Ex: azure ad without common tenant)
-      if (static::getClientType() == "generic" && !$bOk) {
+      if (static::getClientType() == "generic") {
          try {
             // Generates an api token and a personal token... probably not necessary
             $tokenAPI = base_convert(hash('sha256', time() . mt_rand()), 16, 36);
