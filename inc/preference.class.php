@@ -203,12 +203,12 @@ class PluginSinglesignonPreference extends CommonDBTM {
             echo "<tr><td>";
             echo $provider->fields['name'] . ' (ID:' . $pu['remote_id'] . ')';
             echo "</td><td>";
-            echo Html::getCheckbox([
-               'title' => __('Clear'),
-               'name'  => "_remove_sso[]",
-               'value'  => $pu['id'],
-            ]);
-            echo "&nbsp;" . __('Clear');
+            // echo Html::getCheckbox([
+               // 'title' => __('Clear'),
+               // 'name'  => "_remove_sso[]",
+               // 'value'  => $pu['id'],
+            // ]);
+            // echo "&nbsp;" . __('Clear');
             echo "</td></tr>";
          }
       }
