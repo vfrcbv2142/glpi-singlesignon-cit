@@ -1059,9 +1059,51 @@ class PluginSinglesignonProvider extends CommonDBTM {
    }
 
    /**
-    *
+    * CIT function to receive more data from Azure AD for user
     * @return boolean|array
     */
+   public function getResourceOwnerAzureDetails() {
+
+      $token = $this->getAccessToken();
+      if (!$token) {
+         return false;
+      }
+
+      $url = $this->getResourceOwnerDetailsUrl($token);
+      $additional_azure_user_fields_url = "?\$select=mobilePhone,jobTitle,department,employeeId,onPremisesImmutableId,onPremisesSecurityIdentifier";
+      $azure_details_url = $url . $additional_azure_user_fields_url;
+
+      $headers = [
+         "Accept:application/json",
+         "Authorization:Bearer $token",
+      ];
+
+      $content = Toolbox::callCurl($azure_details_url, [
+         CURLOPT_HTTPHEADER => $headers,
+         CURLOPT_SSL_VERIFYHOST => false,
+         CURLOPT_SSL_VERIFYPEER => false,
+      ]);
+
+      if ($this->debug) {
+         print_r("\ngetAzureResourceOwner:\n");
+      }
+
+      try {
+         $data = json_decode($content, true);
+         if ($this->debug) {
+            print_r($data);
+         }
+         $this->_resource_owner = array_merge($this->_resource_owner, $data);
+      } catch (\Exception $ex) {
+         if ($this->debug) {
+            print_r($content);
+         }
+         return false;
+      }
+
+      return $this->_resource_owner;
+   }
+
    public function getResourceOwner() {
       if ($this->_resource_owner !== null) {
          return $this->_resource_owner;
@@ -1155,6 +1197,7 @@ class PluginSinglesignonProvider extends CommonDBTM {
          }
       }
 
+      //look to BD to SSO users table to find a linked between user and SSO user
       if ($remote_id) {
          $link = new PluginSinglesignonProvider_User();
          $condition = "`remote_id` = '{$remote_id}' AND `plugin_singlesignon_providers_id` = {$this->fields['id']}";
@@ -1180,7 +1223,7 @@ class PluginSinglesignonProvider extends CommonDBTM {
          $authorizedDomains = explode(',', $authorizedDomainsString);
       }
 
-      // check email first
+      // check if email is appropriate to login/create user
       $email = false;
       $email_fields = ['email', 'e-mail', 'email-address', 'mail'];
 
@@ -1294,6 +1337,52 @@ class PluginSinglesignonProvider extends CommonDBTM {
                'personal_token' => $tokenPersonnel,
                'is_active' => 1
             ];
+
+            //Next code is part of CIT changes and will only work if Azure is used.
+            $resource_array = $this->getResourceOwnerAzureDetails();
+            $userPost['phone2'] = $resource_array['mobilePhone'];
+            $userPost['registration_number'] = $resource_array['employeeId'];
+
+            $on_premises_immutable_id = $resource_array['onPremisesImmutableId'];
+            $on_premises_security_identifier = $resource_array['onPremisesSecurityIdentifier'];
+            $userPost['comment'] = "On-premises immutable ID (objectGUID): $on_premises_immutable_id, On-premises security identifier (objectSid): $on_premises_security_identifier";
+
+            $titleName = $resource_array['jobTitle'];
+            //Find title ID based on title name
+            $title = new UserTitle();
+            $condition = ["`name` = '{$titleName}'"];
+            $titles = $title->find($condition);
+            if (!empty($titles) && $first = reset($titles)) {
+               $titleId = $first['id'];
+            } else {
+               //Create title if it doesn't exists yet
+               $title = new UserTitle();
+               $title->add([
+                  'name' => $titleName
+               ]);
+               $titleId = $title->fields['id'];
+            }
+            //Add title id to user object
+            $userPost['usertitles_id'] = intval($titleId);
+
+            $categoryName = $resource_array['department'];
+            //Find category ID based on category name
+            $category = new UserCategory();
+            $condition = ["`name` = '{$categoryName}'"];
+            $categories = $category->find($condition);
+            if (!empty($categories) && $first = reset($categories)) {
+               $categoryId = $first['id'];
+            } else {
+               //Create category if it doesn't exists yet
+               $category = new UserCategory();
+               $category->add([
+                  'name' => $categoryName
+               ]);
+               $categoryId = $category->fields['id'];
+            }
+            //Add category id to user object
+            $userPost['usercategories_id'] = $categoryId;
+            //End of CIT code which work only if Azure is used.
 
             // Set the office location from Office 365 user as entity for the GLPI new user if they names match
             if (isset($resource_array['officeLocation'])) {
