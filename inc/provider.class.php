@@ -1381,7 +1381,7 @@ class PluginSinglesignonProvider extends CommonDBTM {
                $categoryId = $category->fields['id'];
             }
             //Add category id to user object
-            $userPost['usercategories_id'] = $categoryId;
+            $userPost['usercategories_id'] = intval($categoryId);
             //End of CIT code which work only if Azure is used.
 
             // Set the office location from Office 365 user as entity for the GLPI new user if they names match
@@ -1404,38 +1404,38 @@ class PluginSinglesignonProvider extends CommonDBTM {
 
             // var_dump($newID);
 
-            $profils = 0;
-            // Verification default profiles exist in the entity
-            // If no default profile exists, the user will not be able to log in.
-            // In this case, we retrieve a profile and an entity and assign these values ​​to it.
-            // The administrator can change these values ​​later.
-            if (0 == Profile::getDefault()) {
-               // No default profiles
-               // Profile recovery and assignment
-               global $DB;
+            // next code will add Student profile if exists for new user, otherwise do nothing
+            global $DB;
 
-               $datasProfiles = [];
-               foreach ($DB->request('glpi_profiles') as $data) {
-                  array_push($datasProfiles, $data);
+            foreach ($DB->request('glpi_profiles') as $data) {
+               if ($data['name'] === 'Student') { // Get Student profile id
+                  $profileId = $data['id'];
+                  break;
                }
-               $datasEntities = [];
-               foreach ($DB->request('glpi_entities') as $data) {
-                  array_push($datasEntities, $data);
-               }
-               if (count($datasProfiles) > 0 && count($datasEntities) > 0) {
-                  $profils = $datasProfiles[0]['id'];
-                  $entitie = $datasEntities[0]['id'];
+            }
+            
+            $userId = intval($user->fields['id']);
+            $datasEntities = [];
+            foreach ($DB->request('glpi_entities') as $data) {
+               array_push($datasEntities, $data);
+            }
+            $entitie = $datasEntities[0]['id']; // Get some entity (should be main one)
 
-                  $profile   = new Profile_User();
-                  $userProfile['users_id'] = intval($user->fields['id']);
-                  $userProfile['entities_id'] = intval($entitie);
-                  $userProfile['is_recursive'] = 0;
-                  $userProfile['profiles_id'] = intval($profils);
-                  $userProfile['add'] = "Ajouter";
-                  $profile->add($userProfile);
-               } else {
-                  return false;
-               }
+            if (isset($profileId) && !empty($profileId)) {
+               $profile   = new Profile_User();
+               $userProfile = [
+                  'users_id' => $userId,
+                  'entities_id' => intval($entitie),
+                  'is_recursive' => 0,
+                  'profiles_id' => intval($profileId),
+                  'add' => "Ajouter"
+               ];
+               $profile->add($userProfile); //add Student profile for user
+
+               $profile->deleteByCriteria([
+                     'users_id' => $userId,
+                     'is_default_profile' => 1
+                  ]); //delete default user profile
             }
 
             return $user;
