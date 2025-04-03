@@ -1279,6 +1279,13 @@ class PluginSinglesignonProvider extends CommonDBTM {
       // var_dump($bOk);
       // die();
 
+      //try to get user from DB by name (it's login field in UI), to check if there is one created by LDAP (if authtype != 1)
+      $condition = ["`name` = '{$login}' AND `authtype` != 1"];
+      $users = $user->find($condition);
+      if (!empty($users)) {
+            Html::displayErrorAndDie("Користувач з таким логіном уже існує. Ввійдіть в систему як працівник університету, натиснувши кнопку 'Login with GLPI'.", true);
+         }
+
       // If the user does not exist in the database and the provider is google
       if (static::getClientType() == "google") {
          // Generates an api token and a personal token... probably not necessary
