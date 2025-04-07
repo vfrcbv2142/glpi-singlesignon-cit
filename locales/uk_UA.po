@@ -2,91 +2,90 @@
 # Copyright (C) YEAR glpi-singlesignon Development Team
 # This file is distributed under the same license as the singlesignon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
-# Eduardo Mozart de Oliveira <eduardomozart182@gmail.com>, 2025
-# 
+# Your Name <your.email@example.com>, 2025
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: singlesignon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-04 19:54+0000\n"
-"PO-Revision-Date: 2025-02-04 19:31+0000\n"
-"Last-Translator: Eduardo Mozart de Oliveira <eduardomozart182@gmail.com>, 2025\n"
-"Language-Team: English (United Kingdom) (https://app.transifex.com/eduardomozart/teams/204814/en_GB/)\n"
+"PO-Revision-Date: 2024-07-27 10:00+0300\n"
+"Last-Translator: Your Name <your.email@example.com>, 2024\n"
+"Language-Team: Ukrainian (https://app.transifex.com/YOUR_TEAM/teams/YOUR_TEAM_ID/uk/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=UTF-8\n" 
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
+"Language: uk_UA\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 #: setup.php:33
 #, php-format
 msgid "Please, rename the plugin folder \"%s\" to \"singlesignon\""
-msgstr "Please, rename the plugin folder \"%s\" to \"singlesignon\""
+msgstr "Будь ласка, перейменуйте папку плагіна \"%s\" на \"singlesignon\""
 
 #: setup.php:67 front/provider.form.php:86 front/provider.form.php:88
 #: front/provider.php:33 front/provider.php:35 inc/preference.class.php:89
 #: inc/provider.class.php:84
 msgid "Single Sign-on"
-msgstr "Single Sign-on"
+msgstr "Єдиний вхід"
 
 #: setup.php:84
 msgid "This plugin requires GLPI >= 0.85"
-msgstr "This plugin requires GLPI >= 0.85"
+msgstr "Цей плагін потребує GLPI >= 0.85"
 
 #: front/callback.php:40
 msgid "Provider not defined."
-msgstr "Provider not defined."
+msgstr "Провайдер не визначено."
 
 #: front/callback.php:46
 msgid "Provider not found."
-msgstr "Provider not found."
+msgstr "Провайдера не знайдено."
 
 #: front/callback.php:50
 msgid "Provider not active."
-msgstr "Provider not active."
+msgstr "Провайдер не активний."
 
 #: front/callback.php:108
 msgid "Automatic redirection, else click"
-msgstr ""
+msgstr "Автоматичне перенаправлення або натисніть тут"
 
 #: inc/preference.class.php:172 inc/provider.class.php:77
 msgid "Single Sign-on Provider"
-msgstr "Single Sign-on Provider"
+msgstr "Провайдер єдиного входу"
 
 #: inc/preference.class.php:197
 msgid "Linked accounts"
-msgstr "Linked accounts"
+msgstr "Пов'язані облікові записи"
 
 #: inc/provider.class.php:126
 msgid "JSON SSO provider representation"
-msgstr ""
+msgstr "Представлення SSO провайдера у форматі JSON"
 
 #: inc/provider.class.php:127
 msgid "Copy provider information"
-msgstr ""
+msgstr "Копіювати інформацію провайдера"
 
 #: inc/provider.class.php:158
 msgid "SSO Type"
-msgstr "SSO Type"
+msgstr "Тип SSO"
 
 #: inc/provider.class.php:166 inc/provider.class.php:509
 msgid "Client ID"
-msgstr "Client ID"
+msgstr "Ідентифікатор клієнта"
 
 #: inc/provider.class.php:168 inc/provider.class.php:517
 msgid "Client Secret"
-msgstr "Client Secret"
+msgstr "Секрет клієнта"
 
 #: inc/provider.class.php:179 inc/provider.class.php:525
 msgid "Scope"
-msgstr "Scope"
+msgstr "Область дії"
 
 #: inc/provider.class.php:181 inc/provider.class.php:533
 msgid "Extra Options"
-msgstr "Extra Options"
+msgstr "Додаткові опції"
 
 #: inc/provider.class.php:183
 #, php-format
@@ -96,102 +95,111 @@ msgid ""
 "settings may vary by provider). You can specify additional parameters with "
 "the \"&\" delimiter."
 msgstr ""
+"Дозволяє вказати користувацькі параметри для провайдера SSO %1$s. Приклад: "
+"%2$s для примусового входу або %3$s для примусового вибору облікового "
+"запису (підтримувані налаштування URL можуть відрізнятися залежно від "
+"провайдера). Ви можете вказати додаткові параметри за допомогою роздільника "
+"\"&\"."
+
 
 #: inc/provider.class.php:183 inc/provider.class.php:190
 #: inc/provider.class.php:541
 msgid "Authorize URL"
-msgstr "Authorize URL"
+msgstr "URL авторизації"
 
 #: inc/provider.class.php:195 inc/provider.class.php:549
 msgid "Access Token URL"
-msgstr "Access Token URL"
+msgstr "URL токена доступу"
 
 #: inc/provider.class.php:200 inc/provider.class.php:557
 msgid "Resource Owner Details URL"
-msgstr "Resource Owner Details URL"
+msgstr "URL даних власника ресурсу"
 
 #: inc/provider.class.php:205
 msgid "IsDefault"
-msgstr ""
+msgstr "За замовчуванням"
 
 #: inc/provider.class.php:207
 msgid "PopupAuth"
-msgstr "PopupAuth"
+msgstr "Автентифікація у спливаючому вікні"
 
 #: inc/provider.class.php:213
 msgid "SplitDomain"
-msgstr "SplitDomain"
+msgstr "Розділяти домен"
 
 #: inc/provider.class.php:217
 msgid "AuthorizedDomains"
-msgstr "AuthorizedDomains"
+msgstr "Дозволені домени"
 
 #: inc/provider.class.php:219
 msgid ""
 "Provide a list of domains allowed to log in through this provider (separated"
 " by commas, no spaces)."
 msgstr ""
+"Надайте список доменів, дозволених для входу через цього провайдера "
+"(розділених комами, без пробілів)."
+
 
 #: inc/provider.class.php:225
 msgid "Use Email as Login"
-msgstr ""
+msgstr "Використовувати Email як логін"
 
 #: inc/provider.class.php:228
 msgid "Split Name"
-msgstr ""
+msgstr "Розділяти ім'я"
 
 #: inc/provider.class.php:316
 msgid "Callback URL"
-msgstr "Callback URL"
+msgstr "URL зворотного виклику"
 
 #: inc/provider.class.php:320
 msgid "Test Single Sign-on"
-msgstr "Test Single Sign-on"
+msgstr "Тестувати єдиний вхід"
 
 #: inc/provider.class.php:379
 msgid "A Name is required"
-msgstr "A Name is required"
+msgstr "Ім'я є обов'язковим"
 
 #: inc/provider.class.php:385
 #, php-format
 msgid "The \"%s\" is a Invalid type"
-msgstr "The \"%s\" is a Invalid type"
+msgstr "\"%s\" є недійсним типом"
 
 #: inc/provider.class.php:389
 msgid "A Client ID is required"
-msgstr "A Client ID is required"
+msgstr "Ідентифікатор клієнта є обов'язковим"
 
 #: inc/provider.class.php:393
 msgid "A Client Secret is required"
-msgstr "A Client Secret is required"
+msgstr "Секрет клієнта є обов'язковим"
 
 #: inc/provider.class.php:398
 msgid "An Authorize URL is required"
-msgstr "An Authorize URL is required"
+msgstr "URL авторизації є обов'язковим"
 
 #: inc/provider.class.php:400
 msgid "The Authorize URL is invalid"
-msgstr "The Authorize URL is invalid"
+msgstr "URL авторизації недійсний"
 
 #: inc/provider.class.php:404
 msgid "An Access Token URL is required"
-msgstr "An Access Token URL is required"
+msgstr "URL токена доступу є обов'язковим"
 
 #: inc/provider.class.php:406
 msgid "The Access Token URL is invalid"
-msgstr "The Access Token URL is invalid"
+msgstr "URL токена доступу недійсний"
 
 #: inc/provider.class.php:410
 msgid "A Resource Owner Details URL is required"
-msgstr "A Resource Owner Details URL is required"
+msgstr "URL даних власника ресурсу є обов'язковим"
 
 #: inc/provider.class.php:412
 msgid "The Resource Owner Details URL is invalid"
-msgstr "The Resource Owner Details URL is invalid"
+msgstr "URL даних власника ресурсу недійсний"
 
 #: inc/provider.class.php:634
 msgid "Generic"
-msgstr "Generic"
+msgstr "Загальний"
 
 #: inc/provider.class.php:635
 msgid "Azure"
@@ -215,13 +223,13 @@ msgstr "Instagram"
 
 #: inc/provider.class.php:640
 msgid "LinkdeIn"
-msgstr "LinkdeIn"
+msgstr "LinkedIn"
 
 #: inc/toolbox.class.php:195
 #, php-format
 msgid "Login with %s"
-msgstr "Login with %s"
+msgstr "Увійти як %s"
 
 #: inc/hook.php:60
 msgid "employee account"
-msgstr "employee account"
+msgstr "працівник"

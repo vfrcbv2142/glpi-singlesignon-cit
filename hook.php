@@ -57,7 +57,7 @@ function plugin_singlesignon_display_login() {
    if (!empty($html)) {
       echo '<div class="singlesignon-box">';
       echo implode(" \n", $html);
-      echo PluginSinglesignonToolbox::renderButton('#', ['name' => __('GLPI')], 'vsubmit old-login');
+      echo PluginSinglesignonToolbox::renderButton('#', ['name' => __sso('employee account')], 'vsubmit old-login');
       echo '</div>';
       ?>
       <style>
