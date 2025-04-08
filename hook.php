@@ -58,7 +58,7 @@ function plugin_singlesignon_display_login() {
       echo '<div class="singlesignon-box">';
       echo implode(" \n", $html);
       echo PluginSinglesignonToolbox::renderButton('#', ['name' => __sso('employee account')], 'vsubmit old-login');
-      echo '<a class="btn btn-outline-secondary btn-icon" href="front/helpdesk.faq.php">?&nbspFAQ</a>';
+      echo '<a class="btn btn-outline-secondary btn-icon" href="front/helpdesk.faq.php">?&nbsp' . __sso('FAQ') . '</a>';
       echo '</div>';
       ?>
       <style>

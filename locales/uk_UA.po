@@ -233,3 +233,7 @@ msgstr "Увійти як %s"
 #: inc/hook.php:60
 msgid "employee account"
 msgstr "працівник"
+
+#: inc/hook.php:61
+msgid "FAQ"
+msgstr "Довідковий центр"

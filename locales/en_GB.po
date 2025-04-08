@@ -225,3 +225,7 @@ msgstr "Login with %s"
 #: inc/hook.php:60
 msgid "employee account"
 msgstr "employee account"
+
+#: inc/hook.php:61
+msgid "FAQ"
+msgstr "FAQ"
