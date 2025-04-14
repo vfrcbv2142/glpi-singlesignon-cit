@@ -237,3 +237,7 @@ msgstr "працівник"
 #: inc/hook.php:61
 msgid "FAQ"
 msgstr "Довідковий центр"
+
+#: inc/provider.class.php:1286
+msgid "A user with this login already exists. Login as the university employee by clicking the 'Login with employee account' button."
+msgstr "Користувач з таким логіном уже існує. Увійдіть у систему як працівник університету, натиснувши кнопку 'Увійти як працівник'."

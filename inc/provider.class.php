@@ -1283,7 +1283,7 @@ class PluginSinglesignonProvider extends CommonDBTM {
       $condition = ["`name` = '{$login}' AND `authtype` != 1"];
       $users = $user->find($condition);
       if (!empty($users)) {
-            Html::displayErrorAndDie("Користувач з таким логіном уже існує. Ввійдіть в систему як працівник університету, натиснувши кнопку 'Login with GLPI'.", true);
+            Html::displayErrorAndDie(__sso("A user with this login already exists. Login as the university employee by clicking the 'Login with employee account' button."), true);
          }
 
       // If the user does not exist in the database and the provider is google

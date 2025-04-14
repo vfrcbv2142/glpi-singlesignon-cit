@@ -229,3 +229,7 @@ msgstr "employee account"
 #: inc/hook.php:61
 msgid "FAQ"
 msgstr "FAQ"
+
+#: inc/provider.class.php:1286
+msgid "A user with this login already exists. Login as the university employee by clicking the 'Login with employee account' button."
+msgstr "A user with this login already exists. Login as the university employee by clicking the 'Login with employee account' button."
